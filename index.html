@@ -41,6 +41,26 @@
         </div>
       </div>
     </header>
+    <div>
+      <h2 class="gallery-text">Наши самые популярные категории товаров</h2>
+      <p class="gallery-textp">Посмотрите на наши самые популярные товары. Их все вы можете найти на официальном сайте</p>
+    </div>
+    <div class="gallery-wrap">
+      <img src="images/back.png" id="backBtn">
+        <div class ="gallery">
+          <div>
+            <span><img src = "frames/accsrsdark.png"></span>
+            <span><img src = "frames/btthdark.png"></span>
+            <span><img src = "frames/lptpsdark.png"></span>
+          </div>
+          <div>
+            <span><img src = "frames/prtsdark.png"></span>
+            <span><img src = "frames/wrngdark.png"></span>
+            <span><img src = "frames/snkrsdark.png"></span>
+          </div>
+        </div>
+      <img src="images/next.png" id="nextBtn">
+    </div>
 
     <div class="container">
       <div class="partners">
@@ -149,8 +169,6 @@
       </div>
     </div>
 
-    
-
     <div class="container">
       <div id="team-section" class="team-section">
         <div class="section-header">
@@ -202,7 +220,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="cta-section">
       <img class="cta-image" src="./images/circs.png" alt="" />
       <div class="cta-content-wrapper">
@@ -226,8 +244,15 @@
                   placeholder="Введите свое сообщение"
                   rows="4"
                 ></textarea>
-              </div>
-              <button type="submit">Подтвердить</button>
+                </div>
+                  <button type="submit" class="btn" onclick="openPopup()">Подтвердить</button>
+                  <div class="popup" id="popup">
+                    <img src="images/accept (1).png" alt="dfsegsdgs">
+                    <h2>Спасибо вам!</h2>
+                    <p>Ваша заявка принята и в скором времени будет рассмотрена. Мы свяжемся с вами по указанной вами почте.</p>
+                    <button type="button" onclick="closePopup()">ОК</button>
+                </div>
+            </div>
                   </div>
                 </div>
               </div>
@@ -236,7 +261,11 @@
         </div>
       </div>
     </div>
-
+      <div class="map">
+        <h1>Расположение нашего главного офиса</h1>
+        <p>На этой интерактивной карте вы можете найти наш главный офис</p>
+        <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/11168/nizhniy-tagil/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Нижний Тагил</a><a href="https://yandex.ru/maps/11168/nizhniy-tagil/house/gazetnaya_ulitsa_85/YUAYfwBiS0MCQFttfXVwcnRlbQ==/?indoorLevel=1&ll=59.972265%2C57.913869&utm_medium=mapframe&utm_source=maps&z=17.17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Газетная улица, 85 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?indoorLevel=1&ll=59.972265%2C57.913869&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTAwMTEzMTg0Em_QoNC-0YHRgdC40Y8sINCh0LLQtdGA0LTQu9C-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0J3QuNC20L3QuNC5INCi0LDQs9C40LssINCT0LDQt9C10YLQvdCw0Y8g0YPQu9C40YbQsCwgODUiCg2a429CFc2nZ0I%2C&z=17.17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+      </div>
     <div id="contacts" class="footer">
       <div class="container">
         <div class="footer-content">
@@ -281,4 +310,40 @@
       </div>
     </div>
   </body>
+  <script>
+    let scrollContainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+      evt.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+      scrollContainer.style.scrollBehavior = "auto"
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft += 1300;
+    });
+
+    backBtn.addEventListener("click", ()=>{
+      scrollContainer.style.scrollBehavior = "smooth";
+      scrollContainer.scrollLeft -= 1300;
+    });
+    </script>
+    <script>
+
+    let popup = document.getElementById("popup");
+
+    function openPopup(){
+      event.preventDefault()
+      popup.classList.add("open-popup");
+    }
+
+    function closePopup(){
+      event.preventDefault()
+      popup.classList.remove("open-popup");
+    }
+
+    </script>
 </html>
